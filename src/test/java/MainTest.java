@@ -47,5 +47,14 @@ void testMainTriggersImpossible() {
     System.setOut(originalOut);
     assertEquals("Impossible", outContent.toString().trim());
 }
+  
+@Test
+void testMainBoundaryAt100() {
+    ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+    System.setOut(new PrintStream(outContent));
+    Main.main(new String[]{"100"});
+    System.setOut(System.out);
+    assertEquals("", outContent.toString().trim());
+}
 
 }
