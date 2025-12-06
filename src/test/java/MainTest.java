@@ -23,7 +23,6 @@ class MainTest{
     
   //     assertTrue(outContent.toString().contains("Impossible"));
   // }
-
     @Test
     void testMainTriggersImpossible() {
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -33,11 +32,13 @@ class MainTest{
         Main.main(new String[]{"150"});  // x > 100
 
         System.setOut(originalOut);
-        String output = outContent.toString();
-        assertTrue(output.contains("Impossible"));
-        assertTrue(output.contains("New average GPA"));
-        assertTrue(output.contains("Top Student"));
-        assertTrue(output.contains("Average GPA"));
+        String[] lines = outContent.toString().trim().split("\\r?\\n");
+
+        // Assert exact outputs in order
+        assertEquals("New average GPA after removal:3.7", lines[0].trim());
+        assertEquals("Top Student: Bob", lines[1].trim());
+        assertEquals("Average GPA: 3.7", lines[2].trim());
+        assertEquals("Impossible", lines[3].trim());
     }
 
     @Test
@@ -49,11 +50,13 @@ class MainTest{
         Main.main(new String[]{"50"});  // x < 100
 
         System.setOut(originalOut);
-        String output = outContent.toString();
-        assertFalse(output.contains("Impossible"));
-        assertTrue(output.contains("New average GPA"));
-        assertTrue(output.contains("Top Student"));
-        assertTrue(output.contains("Average GPA"));
+        String[] lines = outContent.toString().trim().split("\\r?\\n");
+
+        // Assert exact outputs in order
+        assertEquals("New average GPA after removal:3.7", lines[0].trim());
+        assertEquals("Top Student: Bob", lines[1].trim());
+        assertEquals("Average GPA: 3.7", lines[2].trim());
+        assertEquals(3, lines.length);  // no "Impossible"
     }
 
     @Test
@@ -65,10 +68,12 @@ class MainTest{
         Main.main(new String[]{"100"});  // x == 100
 
         System.setOut(originalOut);
-        String output = outContent.toString();
-        assertFalse(output.contains("Impossible"));
-        assertTrue(output.contains("New average GPA"));
-        assertTrue(output.contains("Top Student"));
-        assertTrue(output.contains("Average GPA"));
+        String[] lines = outContent.toString().trim().split("\\r?\\n");
+
+        // Assert exact outputs in order
+        assertEquals("New average GPA after removal:3.7", lines[0].trim());
+        assertEquals("Top Student: Bob", lines[1].trim());
+        assertEquals("Average GPA: 3.7", lines[2].trim());
+        assertEquals(3, lines.length);  // no "Impossible"
     }
 }
