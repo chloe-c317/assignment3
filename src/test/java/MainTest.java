@@ -6,4 +6,9 @@ class MainTest{
   void testMainRunsWithNoIssues(){
     assertDoesNotThrow(()->Main.main(new String[]{}));
   }
+
+  @Test
+  void testMainTriggerImpossible(){
+    assertDoesNotThrow() -> Main.main(new String[]{}));
+  }
 }
