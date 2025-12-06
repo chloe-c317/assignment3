@@ -42,5 +42,20 @@ class UtilsTest{
   void testIsValidAgeTooHigh(){
     assertTrue(Utils.isValidAge(150));
   }
+
+  @Test
+  void testCheckNameSingleChar(){
+    assertTrue(Utils.checkName("A"));
+  }
+
+  @Test
+  void testValidAgeBoundary(){
+    assertTrue(Utils.isValidAge(120));
+  }
+
+  @Test
+  void testValidAgeBelowMax(){
+    assertTrue(Utils.isValidAge(119));
+  }
   
 }
