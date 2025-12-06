@@ -81,12 +81,14 @@
              <targetClasses>
                <param>StudentService*</param>
                <param>Utils*</param>
+               <param>Student*</param>
              </targetClasses>
          
              <!-- Target your tests -->
              <targetTests>
                <param>StudentServiceTest*</param>
                <param>UtilsTest*</param>
+               <param>StudentTest*</param>
              </targetTests>
            </configuration>
          </plugin> 
