@@ -20,7 +20,7 @@ public class Main {
         System.out.println("Average GPA: " + service.calculateAverageGpa());
 
         // Dead code / unused
-        int x = 42;
+        int x = 101;
         if (x > 100) {
             System.out.println("Impossible");  // Never executes
         }
