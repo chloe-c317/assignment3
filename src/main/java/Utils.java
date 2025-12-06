@@ -1,4 +1,4 @@
-package org.csu713.exercise.util;
+
 public class Utils {
 
     // Poor naming, duplicate logic, code smell
