@@ -122,7 +122,7 @@ class StudentServiceTest {
     @Test
     void testRemoveStudentByNameCaseSensitivity(){
         StudentService service = new StudentService();
-        service.addStudent(new Student("Alice", 20, 3.5);
+        service.addStudent(new Student("Alice", 20, 3.5));
 
         service.removeStudentByName("alice");
         assertEquals("Alice", service.getTopStudent().getName());
