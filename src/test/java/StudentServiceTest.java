@@ -59,6 +59,7 @@ class StudentServiceTest {
         service.addStudent(s);
 
         service.removeStudentByName("Alice");
+        assertThrows(IndexOutOfBoundsException.class, () -> service.getTopStudent());
     }
 
     @Test
@@ -68,6 +69,7 @@ class StudentServiceTest {
         service.addStudent(s);
 
         service.removeStudentByName("Bob");
+        assertEquals("Alice", service.getTopStudent().getName());
     }
 
     @Test
@@ -79,6 +81,7 @@ class StudentServiceTest {
         service.addStudent(s2);
 
         service.removeStudentByName("Alice");
+        assertThrows(IndexOutOfBoundsException.class, () -> service.getTopStudent());
     }
         
 
