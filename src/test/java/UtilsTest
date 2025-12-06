@@ -1,0 +1,7 @@
+
+class UtilsTest{
+@Test
+void testCheckNameValid(){
+  assertTrue(Utils.checkName("Alice"));
+}
+}
