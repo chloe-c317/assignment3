@@ -29,6 +29,9 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+
+    - name: Run tests and build with Maven
+      run: mvn clean verify
       
     - name: Generate JaCoCo coverage report
       run: mvn jacoco:report
