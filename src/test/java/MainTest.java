@@ -23,12 +23,6 @@ class MainTest{
     
   //     assertTrue(outContent.toString().contains("Impossible"));
   // }
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
-
-class MainTest {
 
     @Test
     void testMainTriggersImpossible() {
@@ -77,8 +71,4 @@ class MainTest {
         assertTrue(output.contains("Top Student"));
         assertTrue(output.contains("Average GPA"));
     }
-}
-
-
-
 }
