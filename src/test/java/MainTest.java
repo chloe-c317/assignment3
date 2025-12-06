@@ -9,6 +9,6 @@ class MainTest{
 
   @Test
   void testMainTriggerImpossible(){
-    assertDoesNotThrow() -> Main.main(new String[]{}));
+    assertDoesNotThrow(() -> Main.main(new String[]{}));
   }
 }
