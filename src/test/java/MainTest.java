@@ -23,6 +23,13 @@ class MainTest{
     
   //     assertTrue(outContent.toString().contains("Impossible"));
   // }
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
+class MainTest {
+
     @Test
     void testMainTriggersImpossible() {
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -34,9 +41,9 @@ class MainTest{
         System.setOut(originalOut);
         String output = outContent.toString();
         assertTrue(output.contains("Impossible"));
+        assertTrue(output.contains("New average GPA"));
         assertTrue(output.contains("Top Student"));
         assertTrue(output.contains("Average GPA"));
-        assertTrue(output.contains("New average GPA"));
     }
 
     @Test
@@ -50,9 +57,9 @@ class MainTest{
         System.setOut(originalOut);
         String output = outContent.toString();
         assertFalse(output.contains("Impossible"));
+        assertTrue(output.contains("New average GPA"));
         assertTrue(output.contains("Top Student"));
         assertTrue(output.contains("Average GPA"));
-        assertTrue(output.contains("New average GPA"));
     }
 
     @Test
@@ -66,10 +73,12 @@ class MainTest{
         System.setOut(originalOut);
         String output = outContent.toString();
         assertFalse(output.contains("Impossible"));
+        assertTrue(output.contains("New average GPA"));
         assertTrue(output.contains("Top Student"));
         assertTrue(output.contains("Average GPA"));
-        assertTrue(output.contains("New average GPA"));
     }
+}
+
 
 
 }
