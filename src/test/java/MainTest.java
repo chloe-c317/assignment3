@@ -23,44 +23,53 @@ class MainTest{
     
   //     assertTrue(outContent.toString().contains("Impossible"));
   // }
+    @Test
+    void testMainTriggersImpossible() {
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        PrintStream originalOut = System.out;
+        System.setOut(new PrintStream(outContent));
 
-  @Test
-void testMainTriggersImpossible() {
-    ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-    PrintStream originalOut = System.out;
-    System.setOut(new PrintStream(outContent));
+        Main.main(new String[]{"150"});  // x > 100
 
-    Main.main(new String[]{"150"});  // x > 100
+        System.setOut(originalOut);
+        String output = outContent.toString();
+        assertTrue(output.contains("Impossible"));
+        assertTrue(output.contains("Top Student"));
+        assertTrue(output.contains("Average GPA"));
+        assertTrue(output.contains("New average GPA"));
+    }
 
-    System.setOut(originalOut);
-    String output = outContent.toString();
-    assertTrue(output.contains("Impossible"));  // ✅ checks substring
-}
+    @Test
+    void testMainDoesNotTriggerImpossible() {
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        PrintStream originalOut = System.out;
+        System.setOut(new PrintStream(outContent));
 
-@Test
-void testMainDoesNotTriggerImpossible() {
-    ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-    PrintStream originalOut = System.out;
-    System.setOut(new PrintStream(outContent));
+        Main.main(new String[]{"50"});  // x < 100
 
-    Main.main(new String[]{"50"});  // x <= 100
+        System.setOut(originalOut);
+        String output = outContent.toString();
+        assertFalse(output.contains("Impossible"));
+        assertTrue(output.contains("Top Student"));
+        assertTrue(output.contains("Average GPA"));
+        assertTrue(output.contains("New average GPA"));
+    }
 
-    System.setOut(originalOut);
-    String output = outContent.toString();
-    assertFalse(output.contains("Impossible"));  // ✅ checks substring
-}
+    @Test
+    void testMainBoundaryAt100() {
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        PrintStream originalOut = System.out;
+        System.setOut(new PrintStream(outContent));
 
-@Test
-void testMainBoundaryAt100() {
-    ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-    PrintStream originalOut = System.out;
-    System.setOut(new PrintStream(outContent));
+        Main.main(new String[]{"100"});  // x == 100
 
-    Main.main(new String[]{"100"});  // boundary
+        System.setOut(originalOut);
+        String output = outContent.toString();
+        assertFalse(output.contains("Impossible"));
+        assertTrue(output.contains("Top Student"));
+        assertTrue(output.contains("Average GPA"));
+        assertTrue(output.contains("New average GPA"));
+    }
 
-    System.setOut(originalOut);
-    String output = outContent.toString();
-    assertFalse(output.contains("Impossible"));  // ✅ boundary should not print
-}
 
 }
