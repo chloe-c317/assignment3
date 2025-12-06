@@ -51,7 +51,7 @@ class StudentTest{
     assertEquals("Z", shortName.getName());
   
     String longName = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    Student longNameStudent = new Student(long, 23, 4.0);
+    Student longNameStudent = new Student(longName, 23, 4.0);
     assertEquals(longName, longNameStudent.getName());
   }
 }
