@@ -36,6 +36,12 @@ jobs:
     - name: Generate JaCoCo coverage report
       run: mvn jacoco:report
       
+    - name: Upload JaCoCo report
+      uses: actions/upload-artifact@v3
+      with:
+        name: jacoco-report
+        path: target/site/jacoco
+      
     - name: Run PIT mutation coverage
       run: mvn org.pitest:pitest-maven:mutationCoverage
 
