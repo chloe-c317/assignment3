@@ -28,7 +28,7 @@ class StudentTest{
   void testSetAgeOverMax(){
     Student s = new Student("Dmitri", 19, 3.8);
     s.setAge(130);
-    assetEquals(130, s.age);
+    assertEquals(130, s.age);
   }
   
   @Test
@@ -47,12 +47,12 @@ class StudentTest{
   
   @Test
   void testStudentNameLength(){
-    Student short = new Student("Z", 27, 3.9);
-    assertEquals("Z", name.getName());
+    Student shortName = new Student("Z", 27, 3.9);
+    assertEquals("Z", shortName.getName());
   
-    String long = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    Student name = new Student(long, 23, 4.0);
-    assertEquals(long, name.getName());
+    String longName = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    Student longNameStudent = new Student(long, 23, 4.0);
+    assertEquals(longName, longNameStudent.getName());
   }
 }
 
