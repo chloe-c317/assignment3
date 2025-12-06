@@ -76,4 +76,22 @@ class MainTest{
         assertEquals("Average GPA: 3.7", lines[2].trim());
         assertEquals(3, lines.length);  // no "Impossible"
     }
+  
+  @Test
+    void testMainWithNoArgsDefaultsTo42() {
+      ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+      PrintStream originalOut = System.out;
+      System.setOut(new PrintStream(outContent));
+  
+      Main.main(new String[]{});  // no args → defaults to 42
+  
+      System.setOut(originalOut);
+      String[] lines = outContent.toString().trim().split("\\r?\\n");
+  
+      // Assert outputs for x = 42 (should not trigger Impossible)
+      assertEquals("New average GPA after removal:3.7", lines[0].trim());
+      assertEquals("Top Student: Bob", lines[1].trim());
+      assertEquals("Average GPA: 3.7", lines[2].trim());
+      assertEquals(3, lines.length);  // no "Impossible"
+  }
 }
