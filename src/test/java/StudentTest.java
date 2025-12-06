@@ -1,5 +1,7 @@
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 
 class StudentTest{
   @Test
@@ -53,6 +55,20 @@ class StudentTest{
     String longName = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     Student longNameStudent = new Student(longName, 23, 4.0);
     assertEquals(longName, longNameStudent.getName());
+  }
+
+  @Test
+  void testPrintStudentInfo() {
+      Student s = new Student("Grace", 23, 3.7);
+      ByteArrayOutputStream out = new ByteArrayOutputStream();
+      System.setOut(new PrintStream(out));
+  
+      s.printStudentInfo();
+  
+      String output = out.toString().trim();
+      assertTrue(output.contains("Grace"));
+      assertTrue(output.contains("23"));
+      assertTrue(output.contains("3.7"));
   }
 }
 
