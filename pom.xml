@@ -62,27 +62,27 @@
              </executions>
          </plugin>
 
-         <!-- PIT plugin for mutation coverage -->
          <plugin>
-             <groupId>org.pitest</groupId>
-             <artifactId>pitest-maven</artifactId>
-             <version>1.15.0</version>
-             <configuration>
-                 <targetClasses>
-                     <!-- Classes under test -->
-                     <param>StudentService*</param>
-                     <param>Utils*</param>
-                 </targetClasses>
-                 <targetTests>
-                     <!-- Your test classes -->
-                     <param>StudentServiceTest*</param>
-                     <param>UtilsTest*</param>
-                 </targetTests>
-                 <mutators>
-                     <mutator>DEFAULTS</mutator>
-                 </mutators>
-             </configuration>
-         </plugin>
+           <groupId>org.pitest</groupId>
+           <artifactId>pitest-maven</artifactId>
+           <version>1.15.0</version>
+           <configuration>
+             <!-- Tell PIT to use JUnit 5 -->
+             <testPlugin>junit5</testPlugin>
+         
+             <!-- Target your classes -->
+             <targetClasses>
+               <param>StudentService*</param>
+               <param>Utils*</param>
+             </targetClasses>
+         
+             <!-- Target your tests -->
+             <targetTests>
+               <param>StudentServiceTest*</param>
+               <param>UtilsTest*</param>
+             </targetTests>
+           </configuration>
+         </plugin> 
         </plugins>
     </build>
 </project>
