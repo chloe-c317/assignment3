@@ -27,6 +27,62 @@ class StudentServiceTest {
         assertEquals(3.5, avg, 0.001);
     }
 
+    @Test
+    void testGetStudentEmptyListException(){
+        StudentService service = new StudentService();
+        assertThrows(IndexOutOfBoundsException.class, ()->service.getTopStudent());
+    }
+
+    @Test
+    void testCalculateAverageGpaEmptyList(){
+        StudentService service = new StudentService();
+        assertEquals(0.0, service.calculateAverageGpa());
+    }
+
+    @Test
+    void testGetTopStudentTieReturnFirst(){
+        StudentService service = new StudentService();
+        student s1 = new Student("Alice", 20, 3.5);
+        Student s2 = new Student("Bob", 22, 3.5);
+        service.addStudent(s1);
+        service.addStudent(s2);
+
+        Student top = service.getTopStudent();
+        assertEquals("Alice", top.getName());
+    }
+
+    @Test
+    void testRemoveExistingStudentByName(){
+        StudentService service = new StudentService();
+        Student s = new Student("Alice", 20, 3.5);
+        service.addStudent(s);
+
+        service.removeStudentByName("Alice");
+        assertEquals(0, service.getStudents().size());
+    }
+
+    @Test
+    void testRemoveEmptyStudentByName(){
+        StudentService service = new StudentService();
+        Student s = new Student("Alice", 20, 3.5);
+        service.addStudent(s);
+
+        service.removeStudentByName("Bob");
+        assertEquals(1, service.getStudents().size());
+    }
+
+    @Test
+    void testRemoveStudentByNameMultipleSameName(){
+        StudentService service = new StudentService();
+        Student s1 = new Student("Alice", 20, 3.5);
+        Student s2 = new Student("Alice", 22, 3.8);
+        service.addStudent(s1);
+        service.addStudent(s2);
+
+        assertThrows(Exception.class, ()-> service.removeStudentByName("Alice"));
+    }
+        
+
     // Intentionally leave out tests for:
     // - removeStudentByName
     // - behavior with empty student list
