@@ -9,6 +9,11 @@ class UtilsTest{
   }
 
   @Test
+  void testCheckWhitespaceName(){
+    assertTrue(Utils.checkName("  "));
+  }
+
+  @Test
   void testCheckNameEmpty(){
     assertFalse(Utils.checkName(""));
   }
