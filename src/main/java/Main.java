@@ -1,4 +1,7 @@
 package org.csu713.exercise.app;
+import org.csu713.exercise.model.Student;
+import org.csu713.exercise.service.StudentService;
+
 public class Main {
     public static void main(String[] args) {
         StudentService service = new StudentService();
