@@ -42,7 +42,7 @@ class StudentServiceTest {
     @Test
     void testGetTopStudentTieReturnFirst(){
         StudentService service = new StudentService();
-        student s1 = new Student("Alice", 20, 3.5);
+        Student s1 = new Student("Alice", 20, 3.5);
         Student s2 = new Student("Bob", 22, 3.5);
         service.addStudent(s1);
         service.addStudent(s2);
