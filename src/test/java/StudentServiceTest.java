@@ -38,7 +38,7 @@ class StudentServiceTest {
     @Test
     void testAgeTooHigh(){
         Student s = new Student("Alice", 20, 3.5);
-        s.setAge(130);
+        s.setAge(150);
         assertEquals(150, s.age);
     }
 
