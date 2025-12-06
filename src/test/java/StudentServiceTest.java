@@ -2,6 +2,7 @@ package org.csu713.exercise.service;
 
 import org.csu713.exercise.student.Student;
 import org.csu713.exercise.service.StudentService;
+import org.csu713.exercise.model.Student;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
