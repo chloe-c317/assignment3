@@ -118,6 +118,15 @@ class StudentServiceTest {
         service.removeStudentByName("Alice");
         assertThrows(IndexOutOfBoundsException.class, () -> service.getTopStudent());
     }
+
+    @Test
+    void testRemoveStudentByNameCaseSensitivity(){
+        StudentService service = new StudentService();
+        service.addStudent(new Student("Alice", 20, 3.5);
+
+        service.removeStudentByName("alice");
+        assertEquals("Alice", service.getTopStudent().getName());
+    }
         
 
     // Intentionally leave out tests for:
