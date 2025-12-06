@@ -29,6 +29,41 @@ class StudentServiceTest {
     }
 
     @Test
+    void testNegativeAge(){
+        Student s = new Student("Alice", 20, 3.5);
+        s.setAge(-5);
+        assertEquals(0,s.age);
+    }
+
+    @Test
+    void testAgeTooHigh(){
+        Student s = new Student("Alice", 20, 3.5);
+        s.setAge(130);
+        assertEquals(150, s.age);
+    }
+
+    @Test
+    void testValidAge(){
+        Student s = new Student("Alice", 20, 3.5);
+        s.setAge(25);
+        assertEquals(25, s.age);
+    }
+
+    @Test
+    void testSetGPAOverFourOh(){
+        Student s = new Student("Alice", 20, 3.5);
+        s.setGpa(4.7);
+        assertEquals(4.7, s.getGpa());
+    }
+
+    @Test
+    void testNegativeGpa(){
+        Student s = new Student("Bob", 22, 3.5);
+        s.setGpa(-1.0);
+        assertEquals(-1.0, s.getGpa());
+    }
+
+    @Test
     void testGetStudentEmptyListException(){
         StudentService service = new StudentService();
         assertThrows(IndexOutOfBoundsException.class, ()->service.getTopStudent());
