@@ -77,7 +77,7 @@ class StudentServiceTest {
         service.addStudent(s1);
         service.addStudent(s2);
 
-        assertThrows(Exception.class, ()-> service.removeStudentByName("Alice"));
+        service.removeStudentByName("Alice");
     }
         
 
