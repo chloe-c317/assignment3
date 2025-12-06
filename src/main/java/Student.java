@@ -1,4 +1,4 @@
-package org.csu713.exercise.student;
+
 public class Student {
     public String name;  // Should be private
     public int age;
