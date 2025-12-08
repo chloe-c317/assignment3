@@ -20,13 +20,9 @@ public class Main {
         System.out.println("Average GPA: " + service.calculateAverageGpa());
 
         // Dead code / unused
-        // int x = 101;
-        // if (x > 100) {
-        //     System.out.println("Impossible");  // Never executes
-        // }
-        int x = args.length > 0 ? Integer.parseInt(args[0]) : 42;
+        int x = 101;
         if (x > 100) {
-            System.out.println("Impossible");
+            System.out.println("Impossible");  // Never executes
         }
     }
 }
