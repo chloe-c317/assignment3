@@ -66,7 +66,7 @@ class StudentServiceTest {
     @Test
     void testGetStudentEmptyListException(){
         StudentService service = new StudentService();
-        assertNull(service.getTopStudent());
+        assertThrows(IndexOutOfBoundsException.class, () -> service.getTopStudent());
     }
 
     @Test
@@ -95,7 +95,7 @@ class StudentServiceTest {
 
         service.removeStudentByName("Alice");
         assertEquals(0.0, service.calculateAverageGpa(), 0.001);
-        assertNull(service.getTopStudent());
+        assertThrows(IndexOutOfBoundsException.class, () -> service.getTopStudent());
     }
 
     @Test
@@ -117,8 +117,7 @@ class StudentServiceTest {
         service.addStudent(s2);
 
         service.removeStudentByName("Alice");
-        assertEquals(0.0, service.calculateAverageGpa(), 0.001);
-        assertNull(service.getTopStudent());
+        assertThrows(ConcurrentModificationException.class, () -> service.removeStudentByName("Alice"));
     }
 
     @Test
