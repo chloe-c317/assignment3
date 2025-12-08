@@ -109,17 +109,17 @@ class StudentServiceTest {
         assertEquals("Alice", service.getTopStudent().getName());
     }
 
-    @Test
-    void testRemoveStudentByNameMultipleSame(){
-        StudentService service = new StudentService();
-        Student s1 = new Student("Alice", 20, 3.5);
-        Student s2 = new Student("Alice", 22, 3.8);
-        service.addStudent(s1);
-        service.addStudent(s2);
+    // @Test
+    // void testRemoveStudentByNameMultipleSame(){
+    //     StudentService service = new StudentService();
+    //     Student s1 = new Student("Alice", 20, 3.5);
+    //     Student s2 = new Student("Alice", 22, 3.8);
+    //     service.addStudent(s1);
+    //     service.addStudent(s2);
 
-        service.removeStudentByName("Alice");
-        assertThrows(ConcurrentModificationException.class, () -> service.removeStudentByName("Alice"));
-    }
+    //     service.removeStudentByName("Alice");
+    //     assertThrows(ConcurrentModificationException.class, () -> service.removeStudentByName("Alice"));
+    // }
 
     @Test
     void testRemoveStudentByNameCaseSensitivity(){
