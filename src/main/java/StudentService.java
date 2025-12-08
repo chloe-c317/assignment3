@@ -39,12 +39,10 @@ public class StudentService {
 
     // Unused method (code smell)
     public void removeStudentByName(String name) {
-        students.removeIf(s -> s.getName().equals(name));
-        
-        // for (Student s : students) {
-        //     if (s.getName().equals(name)) {
-        //         students.remove(s);  // Bug: ConcurrentModificationException possible
-        //     }
-        // }
+        for (Student s : students) {
+            if (s.getName().equals(name)) {
+                students.remove(s);  // Bug: ConcurrentModificationException possible
+            }
+        }
     }
 }
