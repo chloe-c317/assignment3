@@ -1,7 +1,6 @@
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-import java.util.ConcurrentModificationException;
 
 class StudentServiceTest {
 
@@ -88,17 +87,6 @@ class StudentServiceTest {
         assertEquals("Alice", top.getName());
     }
 
-    // @Test
-    // void testRemoveExistingStudentByName(){
-    //     StudentService service = new StudentService();
-    //     Student s = new Student("Alice", 20, 3.5);
-    //     service.addStudent(s);
-
-    //     service.removeStudentByName("Alice");
-    //     assertEquals(0.0, service.calculateAverageGpa(), 0.001);
-    //     assertThrows(IndexOutOfBoundsException.class, () -> service.getTopStudent());
-    // }
-
     @Test
     void testRemoveEmptyStudentByName(){
         StudentService service = new StudentService();
@@ -108,18 +96,6 @@ class StudentServiceTest {
         service.removeStudentByName("Bob");
         assertEquals("Alice", service.getTopStudent().getName());
     }
-
-    // @Test
-    // void testRemoveStudentByNameMultipleSame(){
-    //     StudentService service = new StudentService();
-    //     Student s1 = new Student("Alice", 20, 3.5);
-    //     Student s2 = new Student("Alice", 22, 3.8);
-    //     service.addStudent(s1);
-    //     service.addStudent(s2);
-
-    //     service.removeStudentByName("Alice");
-    //     assertThrows(ConcurrentModificationException.class, () -> service.removeStudentByName("Alice"));
-    // }
 
     @Test
     void testRemoveStudentByNameCaseSensitivity(){
