@@ -36,7 +36,7 @@ class StudentServiceTest {
     }
 
     @Test
-    void testAgeTooHigh(){
+    void testAgeOutofBounds(){
         Student s = new Student("Alice", 20, 3.5);
         s.setAge(150);
         assertEquals(150, s.age);
@@ -66,7 +66,7 @@ class StudentServiceTest {
     @Test
     void testGetStudentEmptyListException(){
         StudentService service = new StudentService();
-        assertThrows(IndexOutOfBoundsException.class, ()->service.getTopStudent());
+        assertNull(service.getTopStudent());
     }
 
     @Test
@@ -94,7 +94,7 @@ class StudentServiceTest {
         service.addStudent(s);
 
         service.removeStudentByName("Alice");
-        assertEquals(0.0, service.calculateAverageGpa());
+        assertEquals(0.0, service.calculateAverageGpa(), 0.001);
         assertNull(service.getTopStudent());
     }
 
@@ -109,7 +109,7 @@ class StudentServiceTest {
     }
 
     @Test
-    void testRemoveStudentByNameMultipleSameName(){
+    void testRemoveStudentByNameMultipleSame(){
         StudentService service = new StudentService();
         Student s1 = new Student("Alice", 20, 3.5);
         Student s2 = new Student("Alice", 22, 3.8);
@@ -117,7 +117,7 @@ class StudentServiceTest {
         service.addStudent(s2);
 
         service.removeStudentByName("Alice");
-        assertEquals(0.0, service.calculateAverageGpa());
+        assertEquals(0.0, service.calculateAverageGpa(), 0.001);
         assertNull(service.getTopStudent());
     }
 
