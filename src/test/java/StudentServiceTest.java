@@ -50,7 +50,7 @@ class StudentServiceTest {
     }
 
     @Test
-    void testSetGPAOverFourOh(){
+    void testSetGpaOverFourOh(){
         Student s = new Student("Alice", 20, 3.5);
         s.setGpa(4.7);
         assertEquals(4.7, s.getGpa());
