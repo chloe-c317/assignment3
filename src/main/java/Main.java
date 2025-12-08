@@ -12,7 +12,6 @@ public class Main {
         service.addStudent(s3);
 
         service.removeStudentByName("Charlie");
-        System.out.println("New average GPA after removal:" + service.calculateAverageGpa());
 
         // Bug: Will crash if students list is empty
         System.out.println("Top Student: " + service.getTopStudent().getName());
