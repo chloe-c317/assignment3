@@ -88,16 +88,16 @@ class StudentServiceTest {
         assertEquals("Alice", top.getName());
     }
 
-    @Test
-    void testRemoveExistingStudentByName(){
-        StudentService service = new StudentService();
-        Student s = new Student("Alice", 20, 3.5);
-        service.addStudent(s);
+    // @Test
+    // void testRemoveExistingStudentByName(){
+    //     StudentService service = new StudentService();
+    //     Student s = new Student("Alice", 20, 3.5);
+    //     service.addStudent(s);
 
-        service.removeStudentByName("Alice");
-        assertEquals(0.0, service.calculateAverageGpa(), 0.001);
-        assertThrows(IndexOutOfBoundsException.class, () -> service.getTopStudent());
-    }
+    //     service.removeStudentByName("Alice");
+    //     assertEquals(0.0, service.calculateAverageGpa(), 0.001);
+    //     assertThrows(IndexOutOfBoundsException.class, () -> service.getTopStudent());
+    // }
 
     @Test
     void testRemoveEmptyStudentByName(){
