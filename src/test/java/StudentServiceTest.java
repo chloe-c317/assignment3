@@ -118,7 +118,7 @@ class StudentServiceTest {
 
         service.removeStudentByName("Alice");
         assertEquals(0.0, service.calculateAverageGpa());
-        asserNull(service.getTopStudent());
+        assertNull(service.getTopStudent());
     }
 
     @Test
