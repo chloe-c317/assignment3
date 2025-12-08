@@ -94,7 +94,8 @@ class StudentServiceTest {
         service.addStudent(s);
 
         service.removeStudentByName("Alice");
-        assertThrows(IndexOutOfBoundsException.class, () -> service.getTopStudent());
+        assertEquals(0.0, service.calculateAverageGpa());
+        assertNull(service.getTopStudent());
     }
 
     @Test
@@ -116,7 +117,8 @@ class StudentServiceTest {
         service.addStudent(s2);
 
         service.removeStudentByName("Alice");
-        assertThrows(IndexOutOfBoundsException.class, () -> service.getTopStudent());
+        assertEquals(0.0, service.calculateAverageGpa());
+        asserNull(service.getTopStudent());
     }
 
     @Test
