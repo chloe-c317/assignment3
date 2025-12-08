@@ -11,6 +11,7 @@ public class Main {
         service.addStudent(s2);
         service.addStudent(s3);
 
+        // Using unused method from StudentService
         service.removeStudentByName("Charlie");
 
         // Bug: Will crash if students list is empty
